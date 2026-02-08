@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basecamp Transitions | Senior Care Transition &amp; Placement Services</title>
+  <meta name="description" content="Basecamp Transitions coordinates the full journey from hospital discharge to permanent placement for seniors. Care planning, placement, home sale, and Medicaid transition under one roof.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--s50:#fafaf9;--s100:#f5f5f4;--s200:#e7e5e4;--s300:#d6d3d1;--s400:#a8a29e;--s500:#78716c;--s600:#57534e;--s700:#44403c;--s800:#292524;--s900:#1c1917;--f50:#f0fdf4;--f100:#dcfce7;--f200:#bbf7d0;--f300:#6ee7a0;--f500:#16a34a;--f600:#15803d;--f700:#166534;--f800:#14532d;--sk50:#f0f9ff;--sk100:#e0f2fe;--am50:#fffbeb;--am700:#b45309;--w:#fff;--fd:'Fraunces',Georgia,serif;--fb:'DM Sans',-apple-system,sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--fb);color:var(--s800);background:var(--s50);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,249,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--s200);transition:box-shadow .3s}
+    nav.scrolled{box-shadow:0 1px 20px rgba(0,0,0,.06)}
+    .ni{max-width:1200px;margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+    .nl{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--s900)}
+    .nli{width:36px;height:36px;background:var(--f700);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--w);font-family:var(--fd);font-weight:700;font-size:1.1rem}
+    .nlt{font-family:var(--fd);font-weight:600;font-size:1.15rem;letter-spacing:-.02em}
+    .nk{display:flex;gap:2rem;align-items:center}
+    .nk a{text-decoration:none;color:var(--s600);font-size:.9rem;font-weight:500;transition:color .2s}
+    .nk a:hover{color:var(--f700)}
+    .nc{background:var(--f700)!important;color:var(--w)!important;padding:.55rem 1.3rem!important;border-radius:8px;font-weight:600!important}
+    .nc:hover{background:var(--f800)!important}
+    .mm{display:none;background:none;border:none;cursor:pointer;padding:.5rem;color:var(--s700)}
+    .mm svg{width:24px;height:24px}
+
+    /* HERO */
+    .hero{padding:10rem 2rem 6rem;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .hc{max-width:560px}
+    .hb{display:inline-flex;align-items:center;gap:.5rem;background:var(--f50);border:1px solid var(--f200);color:var(--f700);padding:.35rem 1rem;border-radius:100px;font-size:.82rem;font-weight:600;letter-spacing:.03em;margin-bottom:1.5rem}
+    .hbd{width:6px;height:6px;background:var(--f500);border-radius:50%}
+    .hero h1{font-family:var(--fd);font-size:3.2rem;font-weight:700;line-height:1.12;letter-spacing:-.03em;color:var(--s900);margin-bottom:1.3rem}
+    .hero h1 em{font-style:italic;color:var(--f700)}
+    .hero p{font-size:1.12rem;color:var(--s600);line-height:1.7;margin-bottom:2rem}
+    .ha{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+    .bp{display:inline-flex;align-items:center;gap:.5rem;background:var(--f700);color:var(--w);padding:.85rem 1.8rem;border-radius:10px;font-size:1rem;font-weight:600;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
+    .bp:hover{background:var(--f800);transform:translateY(-1px);box-shadow:0 4px 16px rgba(22,101,52,.2)}
+    .bs{display:inline-flex;align-items:center;gap:.5rem;background:var(--w);color:var(--s700);padding:.85rem 1.8rem;border-radius:10px;font-size:1rem;font-weight:600;text-decoration:none;border:1.5px solid var(--s300);transition:all .2s}
+    .bs:hover{border-color:var(--s400);background:var(--s100)}
+    .hv{position:relative;display:flex;justify-content:center}
+    .hcard{background:var(--w);border-radius:20px;padding:2.5rem;box-shadow:0 1px 3px rgba(0,0,0,.04),0 8px 40px rgba(0,0,0,.06);border:1px solid var(--s200);width:100%;max-width:420px}
+    .hcl{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--s400);margin-bottom:1.5rem}
+    .hs{display:flex;gap:1rem;align-items:flex-start;padding:.8rem 0}
+    .hs+.hs{border-top:1px solid var(--s100)}
+    .sn{width:32px;height:32px;min-width:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:700;font-size:.85rem}
+    .sn1{background:var(--f100);color:var(--f700)}.sn2{background:var(--sk100);color:#0369a1}.sn3{background:#fef3c7;color:#92400e}.sn4{background:#f3e8ff;color:#7c3aed}.sn5{background:var(--s100);color:var(--s700)}
+    .st{font-size:.92rem;font-weight:500;color:var(--s700);line-height:1.4}
+    .st span{display:block;font-size:.82rem;font-weight:400;color:var(--s500);margin-top:.15rem}
+
+    /* SECTIONS */
+    section{padding:5.5rem 2rem}
+    .si{max-width:1200px;margin:0 auto}
+    .sl{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--f600);margin-bottom:.8rem}
+    .stl{font-family:var(--fd);font-size:2.4rem;font-weight:700;letter-spacing:-.025em;color:var(--s900);line-height:1.15;margin-bottom:1rem}
+    .sst{font-size:1.08rem;color:var(--s500);line-height:1.65;max-width:580px}
+
+    /* CHALLENGE */
+    .ch{background:var(--s900);color:var(--w)}
+    .ch .sl{color:var(--f300)}.ch .stl{color:var(--w)}
+    .cg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-top:3rem}
+    .cc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2rem}
+    .ci{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.3rem}
+    .cc h3{font-family:var(--fd);font-size:1.15rem;font-weight:600;color:var(--w);margin-bottom:.6rem}
+    .cc p{font-size:.92rem;color:var(--s400);line-height:1.6}
+
+    /* TRACKS */
+    .tg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:3rem}
+    .tc{background:var(--w);border:1.5px solid var(--s200);border-radius:20px;padding:2.2rem;transition:all .25s}
+    .tc:hover{border-color:var(--f300);box-shadow:0 4px 24px rgba(0,0,0,.05);transform:translateY(-2px)}
+    .tt{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:1.2rem}
+    .ttg{background:var(--f50);color:var(--f700)}.ttb{background:var(--sk50);color:#0369a1}.tta{background:var(--am50);color:var(--am700)}
+    .tc h3{font-family:var(--fd);font-size:1.2rem;font-weight:600;color:var(--s800);margin-bottom:.6rem;line-height:1.3}
+    .tc>p{font-size:.9rem;color:var(--s500);line-height:1.6;margin-bottom:1.3rem}
+    .th{border-top:1px solid var(--s100);padding-top:1.2rem}
+    .thl{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--s400);margin-bottom:.6rem}
+    .thi{display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.5rem}
+    .thi .ck{color:var(--f500);font-size:.85rem;margin-top:.15rem;min-width:16px}
+    .thi p{font-size:.85rem;color:var(--s600);line-height:1.5}
+
+    /* PROCESS */
+    .pg{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start}
+    .ps{display:flex;flex-direction:column}
+    .pst{display:flex;gap:1.5rem;padding:1.8rem 0;border-bottom:1px solid var(--s200)}
+    .pst:first-child{padding-top:0}.pst:last-child{border-bottom:none}
+    .pn{font-family:var(--fd);font-size:2rem;font-weight:300;color:var(--s300);min-width:40px;line-height:1;padding-top:.15rem}
+    .pst h3{font-family:var(--fd);font-size:1.12rem;font-weight:600;color:var(--s800);margin-bottom:.4rem}
+    .pst p{font-size:.92rem;color:var(--s500);line-height:1.6}
+    .pa{background:var(--f50);border:1px solid var(--f200);border-radius:20px;padding:2.5rem;position:sticky;top:6rem}
+    .pa h3{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:var(--f800);margin-bottom:.6rem}
+    .pa p{font-size:.95rem;color:var(--f700);line-height:1.6;margin-bottom:1.5rem}
+    .as{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .ast{background:var(--w);border-radius:12px;padding:1.2rem;text-align:center}
+    .asn{font-family:var(--fd);font-size:1.6rem;font-weight:700;color:var(--f700);line-height:1;margin-bottom:.3rem}
+    .asl{font-size:.78rem;color:var(--s500);font-weight:500}
+
+    /* WHY */
+    .wg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:3rem}
+    .wc{background:var(--w);border:1px solid var(--s200);border-radius:16px;padding:2rem;transition:all .25s}
+    .wc:hover{border-color:var(--f300);box-shadow:0 4px 20px rgba(0,0,0,.04);transform:translateY(-2px)}
+    .wi{width:44px;height:44px;background:var(--f50);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.2rem}
+    .wc h3{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:var(--s800);margin-bottom:.5rem}
+    .wc p{font-size:.9rem;color:var(--s500);line-height:1.6}
+
+    /* REFERRAL BANNER */
+    .rb{background:linear-gradient(135deg,var(--f800),var(--f700),#1a5c38);border-radius:24px;padding:3.5rem;color:var(--w);display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;margin-top:3rem}
+    .rb h3{font-family:var(--fd);font-size:1.6rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.6rem}
+    .rb p{font-size:1rem;color:rgba(255,255,255,.8);line-height:1.6;max-width:520px}
+    .rb .bp{background:var(--w);color:var(--f800);white-space:nowrap}
+    .rb .bp:hover{background:var(--s100);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+
+    /* COMPLIANCE */
+    .comp{background:var(--s100)}
+    .cpi{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+    .cpit{display:flex;gap:1rem;align-items:flex-start}
+    .cpck{width:28px;height:28px;min-width:28px;background:var(--f100);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--f700);font-size:.85rem;margin-top:.1rem}
+    .cpit h4{font-size:.95rem;font-weight:600;color:var(--s800);margin-bottom:.2rem}
+    .cpit p{font-size:.85rem;color:var(--s500);line-height:1.5}
+
+    /* CONTACT */
+    .ctg{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+    .cti h3{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:var(--s800);margin-bottom:1rem}
+    .cti p{font-size:1rem;color:var(--s500);line-height:1.65;margin-bottom:2rem}
+    .cd{display:flex;gap:1rem;align-items:center;padding:.8rem 0}
+    .cd+.cd{border-top:1px solid var(--s200)}
+    .cdi{width:40px;height:40px;min-width:40px;background:var(--f50);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+    .cdt{font-size:.95rem;color:var(--s700);font-weight:500}
+    .cdl{font-size:.8rem;color:var(--s400);font-weight:400;display:block}
+    .cf{background:var(--w);border:1px solid var(--s200);border-radius:20px;padding:2.5rem}
+    .fr{margin-bottom:1.2rem}
+    .fr label{display:block;font-size:.85rem;font-weight:600;color:var(--s700);margin-bottom:.4rem}
+    .fr input,.fr textarea,.fr select{width:100%;padding:.75rem 1rem;border:1.5px solid var(--s200);border-radius:10px;font-family:var(--fb);font-size:.92rem;color:var(--s800);transition:border-color .2s;background:var(--s50)}
+    .fr input:focus,.fr textarea:focus,.fr select:focus{outline:none;border-color:var(--f500);background:var(--w)}
+    .fr textarea{resize:vertical;min-height:100px}
+    .frh{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .fsb{width:100%;padding:.85rem;background:var(--f700);color:var(--w);border:none;border-radius:10px;font-family:var(--fb);font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s;margin-top:.5rem}
+    .fsb:hover{background:var(--f800)}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--s200);padding:3rem 2rem}
+    .fi{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .fc{font-size:.85rem;color:var(--s400)}
+    .fl{display:flex;gap:2rem}
+    .fl a{font-size:.85rem;color:var(--s500);text-decoration:none;transition:color .2s}
+    .fl a:hover{color:var(--f700)}
+
+    /* ANIMATIONS */
+    .fin{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+    .fin.vis{opacity:1;transform:translateY(0)}
+
+    /* RESPONSIVE */
+    @media(max-width:960px){.hero{grid-template-columns:1fr;gap:3rem;padding-top:8rem}.hv{order:-1}.hero h1{font-size:2.6rem}.cg,.tg,.wg{grid-template-columns:1fr}.pg{grid-template-columns:1fr}.pa{position:static}.rb{grid-template-columns:1fr;text-align:center}.rb .bp{justify-self:center}.cpi,.ctg{grid-template-columns:1fr}.fi{flex-direction:column;gap:1rem;text-align:center}}
+    @media(max-width:640px){.nk{display:none}.mm{display:block}.nk.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--w);border-bottom:1px solid var(--s200);padding:1.5rem 2rem;box-shadow:0 8px 30px rgba(0,0,0,.08)}.hero{padding-top:7rem;padding-bottom:3rem}.hero h1{font-size:2.1rem}section{padding:3.5rem 1.5rem}.stl{font-size:1.9rem}.ha{flex-direction:column;width:100%}.ha a{width:100%;text-align:center;justify-content:center}.frh{grid-template-columns:1fr}.rb{padding:2rem}.as{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <nav id="nav"><div class="ni"><a href="#" class="nl"><div class="nli">B</div><span class="nlt">Basecamp Transitions</span></a><div class="nk" id="navLinks"><a href="#paths">Who We Help</a><a href="#process">How It Works</a><a href="#why">For Discharge Planners</a><a href="#contact" class="nc">Contact Us</a></div><button class="mm" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hc fin">
+      <div class="hb"><span class="hbd"></span>Serving families statewide across Colorado</div>
+      <h1>Your parent had a fall.<br>We handle <em>everything</em> after.</h1>
+      <p>Basecamp Transitions coordinates the full journey from hospital discharge to permanent placement — regardless of your family’s financial situation. One point of contact from day one through move-in.</p>
+      <div class="ha"><a href="#contact" class="bp">Get Started →</a><a href="#process" class="bs">See How It Works</a></div>
+    </div>
+    <div class="hv fin">
+      <div class="hcard">
+        <div class="hcl">Your family’s journey</div>
+        <div class="hs"><div class="sn sn1">1</div><div class="st">Assessment &amp; family consultation<span>We meet with you at the hospital</span></div></div>
+        <div class="hs"><div class="sn sn2">2</div><div class="st">Financial pathway planning<span>Equity, Medicaid, or a combination</span></div></div>
+        <div class="hs"><div class="sn sn3">3</div><div class="st">Skilled nursing placement<span>Rehabilitation until ambulatory</span></div></div>
+        <div class="hs"><div class="sn sn4">4</div><div class="st">Permanent placement<span>Matched to care needs &amp; budget</span></div></div>
+        <div class="hs"><div class="sn sn5">5</div><div class="st">Ongoing financial coordination<span>Home sale, spend-down, or Medicaid transition</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section class="ch" id="challenge"><div class="si">
+    <div class="sl">The problem</div>
+    <h2 class="stl">The gap no one talks about</h2>
+    <div class="cg">
+      <div class="cc fin"><div class="ci" style="background:rgba(110,231,160,.1)">🏥</div><h3>Medically stable, nowhere to go</h3><p>Your parent is ready for discharge, but there’s no plan in place. The hospital needs the bed. The clock is ticking.</p></div>
+      <div class="cc fin"><div class="ci" style="background:rgba(14,165,233,.1)">💰</div><h3>Finances are complicated</h3><p>Some families have home equity but no cash. Others are facing a Medicaid spend-down. Most don’t know what options exist or how to pay for any of it.</p></div>
+      <div class="cc fin"><div class="ci" style="background:rgba(251,191,36,.1)">👪</div><h3>Family is overwhelmed</h3><p>Adult children are out of state, working full-time, or simply don’t know how to navigate SNFs, ALFs, HELOCs, Medicaid, and home sales all at once.</p></div>
+    </div>
+  </div></section>
+
+  <!-- THREE TRACKS -->
+  <section id="paths"><div class="si">
+    <div class="sl">Who we help</div>
+    <h2 class="stl">Every situation. One team.</h2>
+    <p class="sst">We tailor a transition plan to your family’s specific financial picture — whether there’s significant equity, limited resources, or somewhere in between.</p>
+    <div class="tg">
+      <div class="tc fin">
+        <div class="tt ttg">Equity available</div>
+        <h3>Home equity funds the transition</h3>
+        <p>Your parent owns a home with equity. We coordinate a HELOC to fund care immediately, then sell the home and close everything out.</p>
+        <div class="th"><div class="thl">How it works</div>
+          <div class="thi"><span class="ck">✓</span><p>HELOC established against the property</p></div>
+          <div class="thi"><span class="ck">✓</span><p>Care costs funded with no upfront expense</p></div>
+          <div class="thi"><span class="ck">✓</span><p>Home sold, HELOC repaid, equity returned</p></div>
+          <div class="thi"><span class="ck">✓</span><p>Independent CPA oversees all financials</p></div>
+        </div>
+      </div>
+      <div class="tc fin">
+        <div class="tt ttb">Limited equity</div>
+        <h3>Equity now, Medicaid later</h3>
+        <p>Your parent has some equity, but it won’t last forever. We sell the home, fund private-pay care, and plan the Medicaid transition before funds run out.</p>
+        <div class="th"><div class="thl">How it works</div>
+          <div class="thi"><span class="ck">✓</span><p>Home sold, proceeds fund care</p></div>
+          <div class="thi"><span class="ck">✓</span><p>Spend-down timeline mapped with family</p></div>
+          <div class="thi"><span class="ck">✓</span><p>Medicaid application coordinated in advance</p></div>
+          <div class="thi"><span class="ck">✓</span><p>Placed in Medicaid-accepting facility from day one</p></div>
+        </div>
+      </div>
+      <div class="tc fin">
+        <div class="tt tta">No equity / renter</div>
+        <h3>Medicaid placement from the start</h3>
+        <p>Your parent doesn’t own a home or has no equity. We navigate the Medicaid process and place them in a quality facility that accepts Medicaid.</p>
+        <div class="th"><div class="thl">How it works</div>
+          <div class="thi"><span class="ck">✓</span><p>Medicaid eligibility assessed and filed</p></div>
+          <div class="thi"><span class="ck">✓</span><p>Matched to Medicaid-certified ALR or ACF</p></div>
+          <div class="thi"><span class="ck">✓</span><p>SNF rehab coordinated during application</p></div>
+          <div class="thi"><span class="ck">✓</span><p>No cost to the family for our services</p></div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- PROCESS -->
+  <section id="process" style="background:var(--s100)"><div class="si">
+    <div class="sl">The process</div>
+    <h2 class="stl">One call. One contact.<br>The full transition handled.</h2>
+    <p class="sst">We quarterback every step so your family doesn’t have to.</p>
+    <div class="pg">
+      <div class="ps">
+        <div class="pst fin"><div class="pn">01</div><div><h3>Assessment &amp; Family Consultation</h3><p>We meet with the patient and family — at the hospital or by phone — to assess care needs, evaluate the financial picture, and build a transition plan tailored to your situation.</p></div></div>
+        <div class="pst fin"><div class="pn">02</div><div><h3>Financial Pathway Planning</h3><p>Whether it’s a HELOC, a home sale, a Medicaid application, or a combination — we map out the funding strategy and timeline so the family knows exactly what to expect.</p></div></div>
+        <div class="pst fin"><div class="pn">03</div><div><h3>Skilled Nursing Placement</h3><p>We place the patient in an appropriate SNF for rehabilitation, managing intake paperwork and coordinating with the care team through recovery.</p></div></div>
+        <div class="pst fin"><div class="pn">04</div><div><h3>Permanent Placement</h3><p>Once ambulatory, we transition the patient to the right long-term arrangement — independent living, assisted living, or memory care — matched to their care needs, preferences, and financial plan.</p></div></div>
+        <div class="pst fin"><div class="pn">05</div><div><h3>Financial Close-Out &amp; Ongoing Support</h3><p>We manage the home sale if applicable, coordinate the Medicaid transition when the time comes, and ensure continuity of care through every financial milestone.</p></div></div>
+      </div>
+      <div class="pa fin">
+        <h3>Why families choose us</h3>
+        <p>We’re the only service that combines care placement, financial planning, and real estate expertise under one roof — with full transparency, no matter your financial situation.</p>
+        <div class="as">
+          <div class="ast"><div class="asn">$0</div><div class="asl">Upfront cost to family</div></div>
+          <div class="ast"><div class="asn">1</div><div class="asl">Point of contact</div></div>
+          <div class="ast"><div class="asn">100%</div><div class="asl">Fee transparency</div></div>
+          <div class="ast"><div class="asn">All</div><div class="asl">Financial situations</div></div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- WHY / DISCHARGE PLANNERS -->
+  <section id="why"><div class="si">
+    <div class="sl">For discharge planners</div>
+    <h2 class="stl">One referral. Every situation covered.</h2>
+    <p class="sst">We never turn away a referral based on finances. Every patient gets a plan.</p>
+    <div class="wg">
+      <div class="wc fin"><div class="wi">⚡</div><h3>Same-day response</h3><p>We respond within 2 hours and can meet with the family at bedside the same day you make the referral.</p></div>
+      <div class="wc fin"><div class="wi">💰</div><h3>Any financial situation</h3><p>Home equity, limited resources, or Medicaid from day one — we build a plan that works for every patient’s financial reality.</p></div>
+      <div class="wc fin"><div class="wi">🤝</div><h3>Single handoff</h3><p>Refer the family to us once. We handle financing, SNF placement, permanent placement, and the home sale if needed.</p></div>
+      <div class="wc fin"><div class="wi">🛡️</div><h3>Reduces readmission risk</h3><p>Proper placement matching means patients end up in the right level of care — not back in your ER.</p></div>
+      <div class="wc fin"><div class="wi">📋</div><h3>Full compliance</h3><p>All referral fees disclosed per Colorado law (C.R.S. 6-1-729). Independent CPA oversight on equity cases. Licensed real estate broker.</p></div>
+      <div class="wc fin"><div class="wi">💬</div><h3>You stay informed</h3><p>We close the loop — you’ll receive updates on placement status so you know your patient landed safely.</p></div>
+    </div>
+    <div class="rb fin"><div><h3>Any senior patient who needs placement</h3><p>Post-fall, post-surgery, or any patient who is medically stable but needs help navigating the transition to SNF, assisted living, or long-term care — regardless of their financial situation.</p></div><a href="#contact" class="bp">Make a Referral →</a></div>
+  </div></section>
+
+  <!-- COMPLIANCE -->
+  <section id="compliance" class="comp"><div class="si">
+    <div class="sl">Transparency &amp; trust</div>
+    <h2 class="stl">We work for the family. Period.</h2>
+    <p class="sst">Every fee is disclosed. Every dollar is accounted for. Independent oversight protects your patient’s interests.</p>
+    <div class="cpi">
+      <div class="cpit fin"><div class="cpck">✓</div><div><h4>Colorado-compliant disclosures</h4><p>All referral relationships and fees disclosed per HB19-1268 and HB20-1101. Signed documentation maintained for every client.</p></div></div>
+      <div class="cpit fin"><div class="cpck">✓</div><div><h4>Independent CPA oversight</h4><p>For equity-funded transitions, a third-party CPA reviews all expenditures. Families receive a complete accounting of every dollar.</p></div></div>
+      <div class="cpit fin"><div class="cpck">✓</div><div><h4>Licensed real estate broker</h4><p>Home sales are handled by a licensed Colorado broker, ensuring fiduciary duty and market-rate pricing.</p></div></div>
+      <div class="cpit fin"><div class="cpck">✓</div><div><h4>No hidden fees</h4><p>Our fee structure is presented in writing before any engagement begins. If a facility pays a referral fee, the family knows about it.</p></div></div>
+    </div>
+  </div></section>
+
+  <!-- CONTACT -->
+  <section id="contact"><div class="si">
+    <div class="sl">Get in touch</div>
+    <h2 class="stl">Ready to start a conversation?</h2>
+    <p class="sst">Whether you’re a discharge planner or a family member, we’re here to help.</p>
+    <div class="ctg">
+      <div class="cti fin">
+        <h3>Let’s talk about your situation</h3>
+        <p>Every family’s situation is different. Reach out and we’ll walk you through how we can help — no obligation, no pressure.</p>
+        <div class="cd"><div class="cdi">📱</div><div><span class="cdl">Phone</span><span class="cdt">[Google Voice Number]</span></div></div>
+        <div class="cd"><div class="cdi">✉️</div><div><span class="cdl">Email</span><span class="cdt">marcdonovan100@yahoo.com</span></div></div>
+        <div class="cd"><div class="cdi">📍</div><div><span class="cdl">Service Area</span><span class="cdt">Statewide — Colorado</span></div></div>
+        <div class="cd"><div class="cdi">⏰</div><div><span class="cdl">Response Time</span><span class="cdt">Within 2 hours</span></div></div>
+      </div>
+      <form class="cf fin" onsubmit="handleSubmit(event)">
+        <div class="frh"><div class="fr"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Full name" required></div><div class="fr"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="(555) 555-5555"></div></div>
+        <div class="fr"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@example.com" required></div>
+        <div class="fr"><label for="role">I am a...</label><select id="role" name="role"><option value="">Select one</option><option value="dp">Hospital Discharge Planner / Social Worker</option><option value="fam">Family Member</option><option value="snf">SNF / Rehab Staff</option><option value="atty">Elder Law Attorney</option><option value="other">Other Professional</option></select></div>
+        <div class="fr"><label for="message">How can we help?</label><textarea id="message" name="message" placeholder="Tell us about your situation or the patient you'd like to refer..."></textarea></div>
+        <button type="submit" class="fsb">Send Message →</button>
+      </form>
+    </div>
+  </div></section>
+
+  <footer><div class="fi"><div class="fc">© 2026 Basecamp Transitions. All rights reserved.</div><div class="fl"><a href="#paths">Who We Help</a><a href="#why">For Discharge Planners</a><a href="#contact">Contact</a></div></div></footer>
+
+  <script>
+    window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20)});
+    document.querySelectorAll('.nk a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});
+    var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('vis')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.fin').forEach(function(el){obs.observe(el)});
+    function handleSubmit(e){e.preventDefault();var b=e.target.querySelector('.fsb');b.textContent='Message Sent!';b.style.background='#16a34a';setTimeout(function(){b.textContent='Send Message \u2192';b.style.background='';e.target.reset()},3000)}
+  </script>
+</body>
+</html>
